@@ -3,7 +3,7 @@ name: Deploy to Firebase Hosting
 on:
   push:
     branches:
-      - main  # Change this to your default branch if necessary
+      - main  
 
 jobs:
   deploy:
@@ -16,10 +16,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'  
+          node-version: '18' 
 
       - name: Install Firebase CLI
-        run: npm install -g firebase-tools  
+        run: npm install -g firebase-tools  # Install Firebase CLI globally
 
 
       - name: Deploy to Firebase
