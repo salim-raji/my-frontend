@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management</title>
+  <style>
+    .user-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .user-info {
+      flex: 1;
+    }
+
+    .user-actions button {
+      margin-left: 10px;
+      padding: 5px 10px;
+    }
+
+    .modal {
+      display: flex;
+      flex-direction: column;
+      display: block;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .editForm {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 300px;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="addUserBtn">Add User</button>
+  <ul id="userList"></ul>
+
+  <!-- Edit Modal-->
+  <div id="editModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close" onclick="closeEditPopup()">&times;</span>
+      <h2>Edit User</h2>
+      <form id="editForm">
+        <label for="editName">Name</label>
+        <input id="editName" type="text" required />
+
+        <label for="editEmail">Email</label>
+        <input id="editEmail" type="email" required />
+
+        <label for="editImage">Profile Picture</label>
+        <input type="file" id="editImage" />
+
+        <button type="submit">Update</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Modal-->
+  <div id="addModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close" onclick="closeAddPopup()">&times;</span>
+      <h2>Add User</h2>
+      <form id="addForm">
+        <label for="addName">Name</label>
+        <input id="addName" type="text" required />
+
+        <label for="addEmail">Email</label>
+        <input id="addEmail" type="email" required />
+
+        <label for="addImage">Profile Picture</label>
+        <input type="file" id="addImage" />
+
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
